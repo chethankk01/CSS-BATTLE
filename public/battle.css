@@ -1,0 +1,13 @@
+@import url(//db.onlinewebfonts.com/c/c8a9c5064d8faa5e7acdecfeee4e9075?family=digital+display+tfb);
+.time{
+    color: white;
+    float:right;
+    margin-right: 50px;
+}
+
+span{
+    font-family: "digital display tfb";
+    font-size: 3rem;
+    src:url("//db.onlinewebfonts.com/t/c8a9c5064d8faa5e7acdecfeee4e9075.woff2") format("woff2");
+    letter-spacing: 5px;
+}

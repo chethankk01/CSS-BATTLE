@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/header.ejs") -%>
+<body>
+        <nav>
+            <p>CSS BATTLE <% if (id>0 && id<15) { %>
+                <span class="time">15:00</span>
+            <% }else if (id>15 && id <26  ) { %>
+                <span class="time">25:00</span>
+            }<% } else { %>
+                <span class="time">40:00</span>
+            <% } %></p>
+        </nav>
+    <script src="/timer.js"></script>
+</body>
+</html>
