@@ -2,20 +2,27 @@
 <html lang="en">
     <%- include("./partials/header.ejs") -%>
 <body>
-    <nav>
-        <p>CSS BATTLE</p>
-    </nav>
+    <div class="heading">
+      <h1>CSS BATTLE</h1>
+    </div>
+    <svg>
+      <filter id="fire">
+        <feTurbulence id="turbulance" baseFrequency="0.1 0.1" numOctaves="2" seed="3"></feTurbulence>
+        <animate attributeName="baseFrequency" dur="10s" values="0.1 0.1;0.12 0.2" repeatCount="indefinite"></animate>
+        <feDisplacementMap in="SourceGraphic" scale="10"></feDisplacementMap>
+      </filter>
+    </svg>
     <div class="holder">
-      <form action="/battle"method="POST">
+      <form action="/"method="POST" id="loginForm">
           <div class="mb-3">
             <label for="id" class="form-label">Unique Key</label>
             <input type="text" class="form-control" placeholder="key" id="id" name="key"aria-describedby="idHelp" autocomplete="off"> 
           </div>
           <div class="mb-3">
             <label for="number" class="form-label">Number</label>
-            <input type="number" class="form-control" name="number"id="number" autocomplete="off">
+            <input type="number" class="form-control" name="number" id="number" autocomplete="off">
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-success">Login</button>
         </form>
       </div>
 </body>

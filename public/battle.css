@@ -11,3 +11,28 @@ span{
     src:url("//db.onlinewebfonts.com/t/c8a9c5064d8faa5e7acdecfeee4e9075.woff2") format("woff2");
     letter-spacing: 5px;
 }
+
+legend{
+    color:white
+}
+
+.container{
+    position: absolute;
+    top:40%;
+    left:10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.form1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#file{
+    color:white
+}

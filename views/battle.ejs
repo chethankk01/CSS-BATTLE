@@ -3,14 +3,24 @@
     <%- include("./partials/header.ejs") -%>
 <body>
         <nav>
-            <p>CSS BATTLE <% if (id>0 && id<15) { %>
-                <span class="time">15:00</span>
+            <p><strong>CSS BATTLE</strong> <% if (id>0 && id<15) { %>
+                <span class="time">17:00</span>
             <% }else if (id>15 && id <26  ) { %>
-                <span class="time">25:00</span>
+                <span class="time">27:00</span>
             }<% } else { %>
-                <span class="time">40:00</span>
+                <span class="time">42:00</span>
             <% } %></p>
         </nav>
+        <div class="container">
+            <form action="/api/images" method="post" class="form1" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Select File</legend>
+                    <input type="file" name="file" id="file"/>
+                </fieldset>
+            </br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     <script src="/timer.js"></script>
 </body>
 </html>
