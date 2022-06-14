@@ -7,6 +7,7 @@ const cookieParser=require("cookie-parser")
 const Id=require("./models/id");
 // const mongoose  = require("mongoose")
 const upload = require("./utils/fileUpload")
+const {baseUrl} =require("./config/config")
 
 const PORT = process.env.PORT||3000;
 // const MONGO_URL = process.env.MONGO_URL
@@ -76,7 +77,7 @@ app.post("/",(req,res)=>{
 
 app.get("/battle/:id",(req,res)=>{
     if(req.session.userId){
-        const path = `http://localhost:3000/battleimages/${req.params.id}.png`
+        const path = `${baseUrl}/${req.params.id}.png`
     res.render("battle",{id:req.params.id,path:path})
     }else{
         res.redirect("/");
