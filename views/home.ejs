@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("./partials/header.ejs") -%>
+    <script>
+      if(localStorage.getItem("count_timer")){
+        localStorage.removeItem("count_timer");
+      }
+    </script>
 <body>
     <div class="heading">
       <h1>CSS BATTLE</h1>
