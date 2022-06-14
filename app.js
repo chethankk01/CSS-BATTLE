@@ -8,7 +8,7 @@ const Id=require("./models/id");
 // const mongoose  = require("mongoose")
 const upload = require("./utils/fileUpload")
 
-const PORT = 3000;
+const PORT = process.env.PORT||3000;
 // const MONGO_URL = process.env.MONGO_URL
 
 const app = express()
@@ -41,6 +41,7 @@ app.use(sessions({
 app.set("view engine","ejs")
 app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
+app.use(express.static("public/battleimages"))
 
 app.delete("/delete",async (req,res)=>{
     try{
@@ -58,11 +59,11 @@ app.delete("/delete",async (req,res)=>{
 })
 
 app.get("/",(req,res)=>{
-    // if(!req.session.userId){
+    if(!req.session.userId){
     res.render("home")
-    // }else{
-    //     res.redirect(`/battle/${req.session.number}`);
-    // }
+    }else{
+        res.redirect(`/battle/${req.session.number}`);
+    }
 })
 
 app.post("/",(req,res)=>{
@@ -75,7 +76,8 @@ app.post("/",(req,res)=>{
 
 app.get("/battle/:id",(req,res)=>{
     if(req.session.userId){
-    res.render("battle",{id:req.params.id})
+        const path = `http://localhost:3000/battleimages/${req.params.id}.png`
+    res.render("battle",{id:req.params.id,path:path})
     }else{
         res.redirect("/");
     }
@@ -83,10 +85,18 @@ app.get("/battle/:id",(req,res)=>{
 
 app.post("/api/images",upload.single("file"),(req,res)=>{      
     console.log(req.file);
-    // res.render("end")
+    res.redirect("/end")
+})
+
+app.get("/end",(req,res)=>{
+    if(req.session.userId){
+        req.session.destroy();
+        res.render("end");
+    }else{
+        res.redirect('/');
+    }
 })
 
 app.listen(PORT,()=>{
     console.log(`Server is running on : http://localhost:${PORT}`);
 })
-

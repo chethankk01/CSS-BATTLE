@@ -27,6 +27,15 @@ legend{
     display: none;
 }
 
+.container1{
+    position: absolute;
+    top:10%;
+    left:34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form1{
     display: flex;
     flex-direction: column;

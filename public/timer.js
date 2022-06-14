@@ -8,14 +8,17 @@ var minutes = parseInt(count_timer/60);
 var seconds = parseInt(count_timer%60);
 function countDownTimer(){
     if(seconds < 10){
-        seconds= "0"+ seconds ;
+        seconds= "0"+ seconds;
     }if(minutes < 10){
         minutes= "0"+ minutes ;
     }
-    if(seconds<=120 && seconds>0){
+    if(minutes<=1){
         document.querySelector(".container").style.display="flex";
-    }else if(seconds<=0){
-        window.location = "http://localhost:3000/"
+        document.querySelector(".container1").style.display="none";
+    } 
+    if(minutes==0 && seconds==0){
+        console.log("hiii");
+        window.location = "http://localhost:3000/end";
     }
     document.querySelector(".time").innerHTML =minutes+":"+seconds;
     if(count_timer <= 0){
